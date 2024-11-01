@@ -23,11 +23,9 @@ public class Shoe {
         this.description = description;
     }
 
-    // Constructor không tham số
     public Shoe() {
     }
 
-    // Getter và Setter
     public void setId(String id) {
         this.id = id;
     }
@@ -52,7 +50,7 @@ public class Shoe {
         this.price = price;
     }
 
-    public void setDescription(String description) { // Thêm phương thức setter cho description
+    public void setDescription(String description) {
         this.description = description;
     }
 

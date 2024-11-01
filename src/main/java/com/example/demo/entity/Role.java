@@ -1,45 +1,30 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.util.Collection;
+import java.util.Set;
 
+@Setter
+@Getter
 @Entity
 @Table(name = "roles")
 public class Role {
     @Id
-    private String roleId;
-    private String roleName;
+    private String role_id;
+    private String role_name;
 
-    public Role() {}
+    // Định nghĩa mối quan hệ với User
+    @OneToMany(mappedBy = "role")
+    private Set<User> users;
 
-    public Role(String roleId, String roleName) {
-        this.roleId = roleId;
-        this.roleName = roleName;
+    public Role() {
     }
 
-    public String getRoleId() {
-        return roleId;
+    public Role(String role_id, String role_name) {
+        this.role_id = role_id;
+        this.role_name = role_name;
     }
 
-    public void setRoleId(String roleId) {
-        this.roleId = roleId;
-    }
-
-    public String getRoleName() {
-        return roleName;
-    }
-
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
-    }
-
-    public Role orElseThrow(Object roleKhôngTồnTại) {
-        return new Role(roleId, roleName);
-    }
-
-    public Collection<Object> getPermissions() {
-    }
 }

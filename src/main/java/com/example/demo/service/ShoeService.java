@@ -15,9 +15,6 @@ public class ShoeService {
     @Autowired
     private ShoeRepository shoeRepository;
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
-
     public List<Shoe> getAllShoes() {
         return shoeRepository.findAll();
     }
